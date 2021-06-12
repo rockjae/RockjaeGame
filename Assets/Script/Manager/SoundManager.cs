@@ -11,6 +11,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip Dead;
 
+
+    [SerializeField]    private AudioClip Boss;
+
 public static SoundManager _instance;
     public static SoundManager Instance
     {
@@ -51,6 +54,12 @@ public static SoundManager _instance;
     public void NormalPlay()
     {
         audioSource.clip = Normal;
+        audioSource.Play();
+    }
+
+    public void BossPlay()
+    {
+        audioSource.clip = Boss;
         audioSource.Play();
     }
 }
