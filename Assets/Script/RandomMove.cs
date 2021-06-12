@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomMove : MonoBehaviour
 {
     // Start is called before the first frame update
-    private const float speed = 3;
+    private const float speed = 2;
     void Start()
     {
         StartCoroutine(ranMove());
