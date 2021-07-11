@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TestMonoExample : JSONManager
 {
-    private StageInfoJSON stageInfo;
+    //private StageInfoJSON stageInfo;
     // Start is called before the first frame update
     void Start()
     {
+        /*
         StageInfoJSON stgInfo = new StageInfoJSON();
         string jsonData = ObjectToJson(stgInfo);
         Debug.Log(jsonData);
         CreateJsonFile(jsonData);
+        */
 
 /*
         stageInfo = LoadJsonFile<StageInfoJSON>();

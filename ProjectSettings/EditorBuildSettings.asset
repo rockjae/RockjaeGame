@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/CodingWarrior1.unity
-    guid: 75002e02659732c4590d92e8b48d3932
+    path: Assets/Scene/firstScene.unity
+    guid: 7711ebb0c9bed974682a5ff5f4868615
   m_configObjects: {}
