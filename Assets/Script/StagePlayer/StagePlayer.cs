@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StagePlayer : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class StagePlayer : MonoBehaviour
     private bool isJump;
     public GameObject unDead1;
     public AudioClip deadSound;
+    public GameObject GameOverText;
+    public TMP_Text score;
+    public TMP_Text converSation;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject == unDead1)
@@ -15,6 +20,15 @@ public class StagePlayer : MonoBehaviour
             Destroy(unDead1);
             GetComponent<AudioSource>().clip=deadSound;
             GetComponent<AudioSource>().Play();
+
+            GameOverText.SetActive(true);
+            converSation.text = "당신의 점푸 실력 : " + score.text;
+
+            if(JSONManager.Instance.stageData[0].ClearScore < int.Parse(score.text))
+            {
+                JSONManager.Instance.stageData[0].ClearScore = int.Parse(score.text);
+                JSONManager.Instance.SaveDataArray();
+            }
         }
         isJump=false;
     }
@@ -41,5 +55,10 @@ public class StagePlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         unDead1.SetActive(true);
+    }
+
+    public void returnToTitle()
+    {
+        SceneManager.LoadScene("firstScene");
     }
 }
