@@ -15,14 +15,25 @@ public class FirstSceneManager : MonoBehaviour
     [Header("ConverSation")]
     public GameObject converSation;
     public TMP_Text converSation_Text;
+
     // Start is called before the first frame update
     void Start()
     {
         if(JSONManager.Instance == null)
         {
             Instantiate(JsonManager);
+            JSONManager.Instance.fileLoad += fileLoadEnd;
         }
-        checkOpenStage();
+        else
+        {
+            checkOpenStage();
+            seletStage();
+        }
+    }
+
+    void fileLoadEnd()
+    {
+        seletStage();
     }
 
     private void checkOpenStage()
@@ -52,7 +63,22 @@ public class FirstSceneManager : MonoBehaviour
         stageText.text = "stage" + (stageIndex[RamdomIndex]+1);
         GetComponent<AudioSource>().Play();
 
-        OpenInfoText.text = JSONManager.Instance.stageData[RamdomIndex].OpenInfo;
+        OpenInfoText.text = SetStageInfoText(RamdomIndex);
+    }
+
+    private string SetStageInfoText(int Index)
+    {
+        string _clearScore ="";
+        string _clearCount ="";
+        string _clearTime ="";
+        string _Etc ="";
+        
+        _clearScore = JSONManager.Instance.stageData[Index].ClearScore != 0 ? "점수 : "+JSONManager.Instance.stageData[Index].ClearScore.ToString() : ""; 
+        _clearCount = JSONManager.Instance.stageData[Index].ClearCount != 0 ? "\n클리어 횟수 : "+JSONManager.Instance.stageData[Index].ClearCount.ToString() : "";
+        _clearTime = JSONManager.Instance.stageData[Index].ClearTime != 0 ? "\n클리어 시간 : "+JSONManager.Instance.stageData[Index].ClearTime.ToString() : "";
+        _Etc = !string.IsNullOrEmpty(JSONManager.Instance.stageData[Index].etc) ? "\netc : "+JSONManager.Instance.stageData[Index].etc.ToString() : "";
+
+        return _clearScore+_clearCount+_clearTime+_Etc;
     }
 
     public void startStage()

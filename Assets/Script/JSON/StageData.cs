@@ -16,5 +16,5 @@ public class StageData
     public int ClearScore;
     public int ClearCount;
     public float ClearTime;    
-    public string OpenInfo;
+    public string etc;
 }

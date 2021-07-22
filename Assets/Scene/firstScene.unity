@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "stage1 : \uC810\uC218 11 \uC774\uC0C1"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98474c67cc881734e8039ad2253118d9, type: 2}
   m_sharedMaterial: {fileID: -5602640555722471716, guid: 98474c67cc881734e8039ad2253118d9,

@@ -34,6 +34,9 @@ public class JSONManager : MonoBehaviour
     }
 
     public List<StageData> stageData;
+
+    public delegate void FileLoad();
+    public FileLoad fileLoad;
     
     void Start()
     {
@@ -54,6 +57,8 @@ public class JSONManager : MonoBehaviour
         StageDataArray stageDataList = new StageDataArray();
         stageDataList = LoadJsonFile<StageDataArray>();
         stageData = CollectionExtensions.ToList<StageData>(stageDataList.m_stageDataArray);
+        
+        fileLoad(); //delegate 호출
     }
 
     private string ObjectToJson(object obj)
