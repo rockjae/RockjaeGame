@@ -58,6 +58,20 @@ public class JSONManager : MonoBehaviour
         stageDataList = LoadJsonFile<StageDataArray>();
         stageData = CollectionExtensions.ToList<StageData>(stageDataList.m_stageDataArray);
         
+        if(stageData.Count < NamingString.StageName.Length)
+        {
+            Debug.Log("update stageData");
+
+            int tmpCount = NamingString.StageName.Length - stageData.Count;
+            
+            Debug.Log("tmpCount : " +tmpCount);
+            for(int i = 0 ; i < tmpCount ; i++)
+            {
+                stageData.Add(new StageData());
+            }
+            SaveDataArray();
+        }
+
         fileLoad(); //delegate 호출
     }
 

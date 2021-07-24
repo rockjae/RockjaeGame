@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -59,8 +60,9 @@ public class FirstSceneManager : MonoBehaviour
             }
         }
         
-        int RamdomIndex = Random.Range(0,stageIndex.Count);
-        stageText.text = "stage" + (stageIndex[RamdomIndex]+1);
+        int RamdomIndex = UnityEngine.Random.Range(0,stageIndex.Count);
+        //stageText.text = "stage" + (stageIndex[RamdomIndex]+1);
+        stageText.text = NamingString.StageName[RamdomIndex];
         GetComponent<AudioSource>().Play();
 
         OpenInfoText.text = SetStageInfoText(RamdomIndex);
@@ -83,7 +85,7 @@ public class FirstSceneManager : MonoBehaviour
 
     public void startStage()
     {
-        SceneManager.LoadScene(stageText.text);
+        SceneManager.LoadScene(Array.IndexOf(NamingString.StageName,stageText.text)+1);
         GetComponent<AudioSource>().Play();
     }
 }

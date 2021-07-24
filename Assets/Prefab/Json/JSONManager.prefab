@@ -48,9 +48,4 @@ MonoBehaviour:
     ClearScore: 0
     ClearCount: 0
     ClearTime: 0
-    OpenInfo: "stage1 : \uC810\uC218 11 \uC774\uC0C1"
-  - isOpen: 0
-    ClearScore: 0
-    ClearCount: 0
-    ClearTime: 0
-    OpenInfo: "stage2 : \uC544\uC9C1 \uC548\uC815\uD568"
+    etc: 
