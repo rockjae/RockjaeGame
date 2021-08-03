@@ -39,13 +39,22 @@ public class FirstSceneManager : MonoBehaviour
 
     private void checkOpenStage()
     {
-        //stage2
+        //stage2 open
         if(!JSONManager.Instance.stageData[1].isOpen && JSONManager.Instance.stageData[0].ClearScore > 10)
         {
             JSONManager.Instance.stageData[1].isOpen = true;
             JSONManager.Instance.SaveDataArray();
             converSation.SetActive(true);
-            converSation_Text.text = "stage2는 오픈 되어따";
+            converSation_Text.text = NamingString.StageName[1] +"는 오픈 되어따";
+        }
+
+        //stage4 open
+        if (!JSONManager.Instance.stageData[3].isOpen && JSONManager.Instance.stageData[2].ClearScore > 1)
+        {
+            JSONManager.Instance.stageData[3].isOpen = true;
+            JSONManager.Instance.SaveDataArray();
+            converSation.SetActive(true);
+            converSation_Text.text = NamingString.StageName[3] + "는 오픈 되어따";
         }
     }
 
