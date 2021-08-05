@@ -889,6 +889,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 1739505898}
   Cherry: {fileID: 656207761}
+  Conversation: {fileID: 951590076}
+  converSation: {fileID: 565760274}
 --- !u!4 &512047754
 Transform:
   m_ObjectHideFlags: 0
@@ -1401,6 +1403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1404958295}
+  moveGame: {fileID: 512047753}
 --- !u!61 &656207767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2212,8 +2215,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512047752}
-        m_MethodName: 
+      - m_Target: {fileID: 512047753}
+        m_MethodName: returnToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4146,6 +4149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1404958295}
+  moveGame: {fileID: 512047753}
 --- !u!1001 &8758646360314449437
 PrefabInstance:
   m_ObjectHideFlags: 0

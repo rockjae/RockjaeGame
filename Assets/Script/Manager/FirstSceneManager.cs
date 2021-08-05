@@ -45,7 +45,16 @@ public class FirstSceneManager : MonoBehaviour
             JSONManager.Instance.stageData[1].isOpen = true;
             JSONManager.Instance.SaveDataArray();
             converSation.SetActive(true);
-            converSation_Text.text = NamingString.StageName[1] +"는 오픈 되어따";
+            converSation_Text.text = GetCompleteWorld(converSation_Text.text = NamingString.StageName[1], "은", "는") + " 오픈 되어따";
+        }
+
+        //stage3 open
+        if (!JSONManager.Instance.stageData[2].isOpen && JSONManager.Instance.stageData[1].ClearTime > 10f)
+        {
+            JSONManager.Instance.stageData[2].isOpen = true;
+            JSONManager.Instance.SaveDataArray();
+            converSation.SetActive(true);
+            converSation_Text.text = GetCompleteWorld(converSation_Text.text = NamingString.StageName[2], "은", "는") + " 오픈 되어따";
         }
 
         //stage4 open
@@ -54,8 +63,24 @@ public class FirstSceneManager : MonoBehaviour
             JSONManager.Instance.stageData[3].isOpen = true;
             JSONManager.Instance.SaveDataArray();
             converSation.SetActive(true);
-            converSation_Text.text = NamingString.StageName[3] + "는 오픈 되어따";
+            converSation_Text.text = GetCompleteWorld(converSation_Text.text = NamingString.StageName[3],"은","는") + " 오픈 되어따";
         }
+    }
+
+    public string GetCompleteWorld(string name, string firstVal, string secondVal)
+    {
+        char lastName = name.ElementAt(name.Length - 1);
+        int index = (lastName - 0xAC00) % 28;
+        Console.WriteLine(index);
+        //한글의 제일 처음과 끝의 범위 밖일경우 에러 
+        if (lastName < 0xAC00 || lastName > 0xD7A3)
+        {
+            return name;
+        }
+
+        string selectVal = (lastName - 0xAC00) % 28 > 0 ? firstVal : secondVal;
+
+        return name + selectVal;
     }
 
     public void seletStage()

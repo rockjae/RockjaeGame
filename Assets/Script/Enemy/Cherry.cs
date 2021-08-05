@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cherry : MonoBehaviour
 {
     public GameObject player;
+    public MoveGame moveGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Cherry : MonoBehaviour
         {
             Debug.Log("맞음");
             GetComponent<AudioSource>().Play();
+            moveGame.EndGame();
         }
     }
 }

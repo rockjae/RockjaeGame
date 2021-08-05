@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MoveGame : MonoBehaviour
 {
     public TMP_Text TimerText;
     public GameObject Cherry;
     private float timer;
+    private bool isEnd;
+    [Header("conversation")]
+    public GameObject Conversation;
+    public TMP_Text converSation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +35,37 @@ public class MoveGame : MonoBehaviour
 
     private void Update()
     {
+        if(isEnd)
+        {
+            return;
+        }
         timer += Time.deltaTime;
-        TimerText.text = ((int)timer).ToString()+"초";
+        TimerText.text = timer.ToString();
+    }
+
+    public void EndGame()
+    {
+        if(!isEnd)
+        {
+            isEnd = true;
+        }
+        else
+        {
+            return;
+        }
+
+        Conversation.SetActive(true);
+        converSation.text = "당신의 이동 실력 : " + TimerText.text + "초";
+
+        if (JSONManager.Instance.stageData[1].ClearTime < float.Parse(TimerText.text))
+        {
+            JSONManager.Instance.stageData[1].ClearTime = float.Parse(TimerText.text);
+            JSONManager.Instance.SaveDataArray();
+        }
+    }
+
+    public void returnToTitle()
+    {
+        SceneManager.LoadScene("firstScene");
     }
 }
