@@ -9,6 +9,7 @@ public class NamingString : MonoBehaviour
         "이동슬라임",
         "업다운",
         "Flappy Slime",
+        "코딩전사",
         "Coding Soon!"
     };
 

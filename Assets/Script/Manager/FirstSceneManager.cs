@@ -65,6 +65,15 @@ public class FirstSceneManager : MonoBehaviour
             converSation.SetActive(true);
             converSation_Text.text = GetCompleteWorld(converSation_Text.text = NamingString.StageName[3],"은","는") + " 오픈 되어따";
         }
+
+        //stage5 open
+        if (!JSONManager.Instance.stageData[4].isOpen && JSONManager.Instance.stageData[3].ClearScore > 20)
+        {
+            JSONManager.Instance.stageData[4].isOpen = true;
+            JSONManager.Instance.SaveDataArray();
+            converSation.SetActive(true);
+            converSation_Text.text = GetCompleteWorld(converSation_Text.text = NamingString.StageName[4], "은", "는") + " 오픈 되어따";
+        }
     }
 
     public string GetCompleteWorld(string name, string firstVal, string secondVal)

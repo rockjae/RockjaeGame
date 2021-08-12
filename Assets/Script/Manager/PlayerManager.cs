@@ -59,7 +59,13 @@ public class PlayerManager : MonoBehaviour
         setPlayerMove(true);
         Freeze_dead.SetActive(true);
         SoundManager.Instance.DeadPlay();
-        //SceneManager.LoadScene("CodingWarrior");
+
+        Invoke("returnToTitle", 5f);
+    }
+
+    private void returnToTitle()
+    {
+        SceneManager.LoadScene("firstScene");
     }
 
     public void setPlayerMove(bool onoff)
