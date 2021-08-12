@@ -49,7 +49,7 @@ public class FirstSceneManager : MonoBehaviour
         }
 
         //stage3 open
-        if (!JSONManager.Instance.stageData[2].isOpen && JSONManager.Instance.stageData[1].ClearTime > 10f)
+        if (!JSONManager.Instance.stageData[2].isOpen && JSONManager.Instance.stageData[1].ClearTime > 20f)
         {
             JSONManager.Instance.stageData[2].isOpen = true;
             JSONManager.Instance.SaveDataArray();
@@ -58,7 +58,7 @@ public class FirstSceneManager : MonoBehaviour
         }
 
         //stage4 open
-        if (!JSONManager.Instance.stageData[3].isOpen && JSONManager.Instance.stageData[2].ClearScore > 1)
+        if (!JSONManager.Instance.stageData[3].isOpen && (JSONManager.Instance.stageData[2].ClearScore > 0 && JSONManager.Instance.stageData[2].ClearScore < 5) )
         {
             JSONManager.Instance.stageData[3].isOpen = true;
             JSONManager.Instance.SaveDataArray();

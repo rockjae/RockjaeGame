@@ -66,9 +66,14 @@ public class BinaryGame : MonoBehaviour
     public void endStage()
     {
         Conversation.SetActive(true);
-        ConversationText.text = "당신의 스코어 : " + count;
+        ConversationText.text = "당신의 시도 : " + count;
 
-        if (JSONManager.Instance.stageData[2].ClearScore < count)
+        if(JSONManager.Instance.stageData[2].ClearScore == 0)
+        {
+            JSONManager.Instance.stageData[2].ClearScore = count;
+            JSONManager.Instance.SaveDataArray();
+        }
+        else if (JSONManager.Instance.stageData[2].ClearScore > count)
         {
             JSONManager.Instance.stageData[2].ClearScore = count;
             JSONManager.Instance.SaveDataArray();
