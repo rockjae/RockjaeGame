@@ -8,6 +8,7 @@ public class NamingString : MonoBehaviour
         "점푸슬라임",
         "이동슬라임",
         "업다운",
+        "Flappy Slime",
         "Coding Soon!"
     };
 
@@ -15,6 +16,7 @@ public class NamingString : MonoBehaviour
         "게임 실행하기",
         "점푸슬라임 점수 11점 이상",
         "이동슬라임 시간 10초 이상",
+        "Flappy Slime 점수 100이상",
         "Coding Soon!"
     };
 }

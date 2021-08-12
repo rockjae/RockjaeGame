@@ -105,9 +105,9 @@ public class JSONManager : MonoBehaviour
         string loadPath = "";
         #if UNITY_EDITOR
                 loadPath = Application.dataPath;
-        #elif UNITY_ANDROID || UNITY_IOS
+#elif UNITY_ANDROID || UNITY_IOS
                 loadPath = Application.persistentDataPath;
-        #endif
+#endif
 
         Debug.Log("loadPath : " + loadPath);
         FileInfo fileinfo = new FileInfo(loadPath+"/StageInfoJSON.json");
